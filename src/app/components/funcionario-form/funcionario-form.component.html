@@ -1,0 +1,35 @@
+<h1>{{btnTitulo}}</h1>
+
+<form [formGroup]="funcionarioForm" (ngSubmit)="submit()" #formDit="ngForm">
+  <div class="input_box">
+    <label for="">Nome:</label>
+  <input type="text" formControlName="nome" placeholder="Insira o nome..." required>
+  </div>
+  <div class="input_box">
+    <label for="">Sobrenome:</label>
+  <input type="text" formControlName="sobrenome" placeholder="Insira o sobrenome..." required>
+  </div>
+  <div class="input_box">
+    <label for="departamento">Departamento:</label>
+    <select id="departamento" formControlName="departamento" required id="departamento">
+      <option value="RH">RH</option>
+      <option value="Financeiro">Financeiro</option>
+      <option value="Compras">Compras</option>
+      <option value="Atendimento">Atendimento</option>
+      <option value="Zeladoria">Zeladoria</option>
+    </select>
+  </div>
+  <div class="input_box">
+    <label for="departamento">Turno:</label>
+    <select id="turno" formControlName="turno" required id="turno">
+      <option value="Manha">Manhã</option>
+      <option value="Tarde">Tarde</option>
+      <option value="Noite">Noite</option>
+    </select>
+  </div>
+
+  <div class="btn-box">
+    <button type="submit" [disabled]="!funcionarioForm.valid">{{btnAcao}}</button>
+    <button>Voltar</button>
+  </div>
+</form>
