@@ -1,0 +1,57 @@
+<mat-card>
+  <div>
+    <h1>Detalhes Funcionário</h1>
+  </div>
+  
+  <div *ngIf="funcionario">
+    <form>
+      <div class="input_box">
+        <mat-form-field>
+          <mat-label>Nome</mat-label>
+          <input matInput type="text" disabled value="{{funcionario.nome}}">
+        </mat-form-field>
+      </div>
+      <div class="input_box">
+        <mat-form-field>
+          <mat-label>Sobrenome</mat-label>
+        <input matInput type="text" disabled value="{{funcionario.sobrenome}}">
+        </mat-form-field>
+      </div>
+      <div class="input_box">
+        <mat-form-field>
+          <mat-label>Departamento</mat-label>
+          <input matInput type="text" disabled value="{{funcionario.departamento}}">
+        </mat-form-field>
+      </div>
+      <div class="input_box">
+        <mat-form-field>
+          <mat-label>Turno</mat-label>
+          <input matInput type="text" disabled value="{{funcionario.turno}}">
+        </mat-form-field>
+      </div>
+      <div class="input_box">
+       <mat-form-field>
+        <mat-label>Situação</mat-label>
+        <input matInput type="text" disabled value="{{funcionario.ativo ? 'Ativo' : 'Inativo'}}">
+       </mat-form-field>
+      </div>
+      <div class="input_box">
+        <mat-form-field>
+          <mat-label>Data de Criação</mat-label>
+          <input matInput type="text" disabled value="{{funcionario.dataDeCriacao}}">
+        </mat-form-field>
+      </div>
+      <div class="input_box">
+        <mat-form-field>
+          <mat-label>Data de Alteração</mat-label>
+        <input matInput type="text" disabled value="{{funcionario.dataDeAlteracao}}">
+        </mat-form-field>
+      </div>
+      <div class="btn-box">
+        <button color="warn" mat-raised-button (click)="inativaFuncionario()">Inativar Usuário</button>
+        <button mat-raised-button routerLink="/">Voltar</button>
+      </div>
+  
+    </form>
+  </div>
+</mat-card>

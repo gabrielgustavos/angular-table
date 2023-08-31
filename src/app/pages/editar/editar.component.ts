@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Funcionario } from 'src/app/models/funcionarios';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
 
@@ -11,9 +11,10 @@ import { FuncionarioService } from 'src/app/services/funcionario.service';
 export class EditarComponent implements OnInit {
   btnAcao: string = 'Editar';
   btnTitulo: string = 'Editar Funcionário';
-  funcionario!: any;
+  funcionario?: Funcionario;
   private funcionarioService = inject(FuncionarioService)
   private route = inject(ActivatedRoute)
+  private router = inject(Router)
 
   constructor() { }
 
@@ -25,7 +26,12 @@ export class EditarComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'))
     this.funcionarioService.getFuncionarioById(id).subscribe((data) => {
       this.funcionario = data.dados
-      console.log(this.funcionario)
+    })
+  }
+
+  editarFuncionario(funcionario: Funcionario) {
+    this.funcionarioService.editarFuncionario(funcionario).subscribe((data) => {
+      this.router.navigate(['/'])
     })
   }
 

@@ -11,6 +11,8 @@ export class HomeComponent implements OnInit {
   funcionarios: Funcionario[] = []
   funcionariosGeral: Funcionario[] = []
   private funcionarioService = inject(FuncionarioService)
+  colunas = ['Situacao', 'Nome', 'Sobrenome', 'Departamento', 'Ações', 'Excluir']
+
 
   constructor() { }
 
